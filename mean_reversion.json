@@ -1,126 +1,126 @@
 {
-  "name": "Mean Reversion",
-  "timeframe": "1h",
-  "pairs": [
-    "ETH/USDT",
-    "LINK/USDT"
-  ],
-  "config": {
-    "config": {
-      "pandas_ta": {
-        "zscore_n1": {
-          "name": "zscore",
-          "parameters": [
-            {
-              "name": "close",
-              "type_": "pd.Series",
-              "df": true,
-              "value": "close"
-            },
-            {
-              "name": "length",
-              "type_": "int",
-              "df": false,
-              "value": "30"
-            }
-          ],
-          "returns_columns": []
-        }
-      },
-      "timeframes": {}
-    }
-  },
-  "signals": {
-    "enter_long": {
-      "type_": "lower",
-      "column1": "zscore_n1_zscore",
-      "column2": "number",
-      "value_2": "-2",
-      "side": true,
-      "children": []
-    },
-    "enter_short": {
-      "type_": "greater",
-      "column1": "zscore_n1_zscore",
-      "column2": "number",
-      "value_2": "2",
-      "side": true,
-      "children": []
-    },
-    "exit_long": {},
-    "exit_short": {},
-    "enter_long_cooldown": null,
-    "enter_short_cooldown": null
-  },
-  "plot": {
-    "main_plot": {},
-    "subplots": {
-      "zscore_n1": {
-        "zscore_n1_zscore": {
-          "color": "blue",
-          "type": "line"
-        }
-      }
-    }
-  },
-  "notes": [],
-  "risk": {
-    "minimal_roi": [
-      {
-        "0": 0.2
-      }
-    ],
-    "stoploss": -0.2,
-    "leverage": 10.0,
-    "useTimeLimit": false,
-    "timeLimit": 10,
-    "capital": 1000.0,
-    "maxTrades": 3,
-    "atrExit": false,
-    "atrTp": 3.0,
-    "atrSl": 1.0,
-    "tauExit": false,
-    "tauTp": 2.0,
-    "tauSl": 2.0,
-    "composite": false,
-    "positionReverse": false,
-    "trailing_stop": false,
-    "trailing_stop_positive": 0.0,
-    "trailing_stop_positive_offset": 0.0,
-    "trailing_only_offset_is_reached": false,
-    "fixedRisk": false,
-    "fixedPct": false,
-    "fixedCapital": false,
-    "fixedPctValue": 0.05,
-    "fixedCapitalValue": 50.0,
-    "volatilityBased": false,
-    "volatility": {
-      "indicator": "atr",
-      "tpMul": 1.0,
-      "slMul": 1.0
-    },
-    "entry": null,
-    "levelStop": null
-  },
-  "shop": {
-    "title": "Mean Reversion",
-    "description": "Capitalizes on extreme price movements to profit when the asset returns to its historical average.",
-    "image": "https://picsum.photos/400/200?random=7",
-    "badges": [
-      "Mean Reversion",
-      "Range"
-    ],
-    "timeframes": [
-      "1h",
-      "4h"
-    ],
+    "name": "Mean Reversion",
+    "timeframe": "1h",
     "pairs": [
-      "ETH/USDT",
-      "LINK/USDT"
+        "ETH/USDT",
+        "LINK/USDT"
     ],
-    "id": "mean_reversion"
-  },
-  "aiModels": {},
-  "barsType": "time",
-  "barsThreshold": null
+    "config": {
+        "config": {
+            "pandas_ta": {
+                "zscore_n1": {
+                    "name": "zscore",
+                    "parameters": [
+                        {
+                            "name": "close",
+                            "type_": "pd.Series",
+                            "df": true,
+                            "value": "close"
+                        },
+                        {
+                            "name": "length",
+                            "type_": "int",
+                            "df": false,
+                            "value": "30"
+                        }
+                    ],
+                    "returns_columns": []
+                }
+            },
+            "timeframes": {}
+        }
+    },
+    "signals": {
+        "enter_long": {
+            "type_": "lower",
+            "column1": "zscore_n1_zscore",
+            "column2": "number",
+            "value_2": "-2",
+            "side": true,
+            "children": []
+        },
+        "enter_short": {
+            "type_": "greater",
+            "column1": "zscore_n1_zscore",
+            "column2": "number",
+            "value_2": "2",
+            "side": true,
+            "children": []
+        },
+        "exit_long": {},
+        "exit_short": {},
+        "enter_long_cooldown": null,
+        "enter_short_cooldown": null
+    },
+    "plot": {
+        "main_plot": {},
+        "subplots": {
+            "zscore_n1": {
+                "zscore_n1_zscore": {
+                    "color": "blue",
+                    "type": "line"
+                }
+            }
+        }
+    },
+    "notes": [],
+    "risk": {
+        "minimal_roi": [
+            {
+                "0": 0.2
+            }
+        ],
+        "stoploss": -0.2,
+        "leverage": 10.0,
+        "useTimeLimit": false,
+        "timeLimit": 10,
+        "capital": 1000.0,
+        "maxTrades": 3,
+        "atrExit": false,
+        "atrTp": 3.0,
+        "atrSl": 1.0,
+        "tauExit": false,
+        "tauTp": 2.0,
+        "tauSl": 2.0,
+        "composite": false,
+        "positionReverse": false,
+        "trailing_stop": false,
+        "trailing_stop_positive": 0.0,
+        "trailing_stop_positive_offset": 0.0,
+        "trailing_only_offset_is_reached": false,
+        "fixedRisk": false,
+        "fixedPct": false,
+        "fixedCapital": false,
+        "fixedPctValue": 0.05,
+        "fixedCapitalValue": 50.0,
+        "volatilityBased": false,
+        "volatility": {
+            "indicator": "atr",
+            "tpMul": 1.0,
+            "slMul": 1.0
+        },
+        "entry": null,
+        "levelStop": null
+    },
+    "shop": {
+        "title": "Mean Reversion",
+        "description": "Capitalizes on extreme price movements to profit when the asset returns to its historical average.",
+        "image": "https://picsum.photos/400/200?random=7",
+        "badges": [
+            "Mean Reversion",
+            "Range"
+        ],
+        "timeframes": [
+            "1h",
+            "4h"
+        ],
+        "pairs": [
+            "ETH/USDT",
+            "LINK/USDT"
+        ],
+        "id": "mean_reversion"
+    },
+    "aiModels": {},
+    "barsType": "time",
+    "barsThreshold": null
 }

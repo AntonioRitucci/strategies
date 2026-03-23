@@ -1,50 +1,45 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "templates": [
     {
       "id": "fibonacci_retracement",
-      "hash": "9fbfd93a4d3dc33849389b0a7f75161e",
-      "url": "https://treewise.ai/templates/fibonacci_retracement.json"
+      "hash": "843feb34dccde9af4aebe2a4c8c182a7",
+      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/templates/fibonacci_retracement.json"
     },
     {
       "id": "mean_reversion",
-      "hash": "f8a301054311aebeb84dc52c082e5551",
-      "url": "https://treewise.ai/templates/mean_reversion.json"
+      "hash": "2b9adc40ac1d0e3fbcfeeccfc2ff187d",
+      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/templates/mean_reversion.json"
     },
     {
       "id": "volume_spikes",
-      "hash": "56fb0213b70bf285302f5e35799fd178",
-      "url": "https://treewise.ai/templates/volume_spikes.json"
+      "hash": "68a09c72f7e5092c13ebbc7a5de5103e",
+      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/templates/volume_spikes.json"
     },
     {
       "id": "heikin_ashi_trend",
-      "hash": "35c607809d7587c9d235f25f1cb38cb8",
-      "url": "https://treewise.ai/templates/heikin_ashi_trend.json"
-    },
-    {
-      "id": "rsi_crossover",
-      "hash": "7ac2c776c23b4b75cfacc646aa6e77a8",
-      "url": "https://treewise.ai/templates/rsi_crossover.json"
+      "hash": "c3d48434a0c1f50fa4b0b0b30f83e1db",
+      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/templates/heikin_ashi_trend.json"
     },
     {
       "id": "bollinger_breakout",
-      "hash": "c04c8b1e0e3851f2f96850e2dcb45cb4",
-      "url": "https://treewise.ai/templates/bollinger_breakout.json"
+      "hash": "435d2dd50562026241dcfdff6d54bfe8",
+      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/templates/bollinger_breakout.json"
     },
     {
       "id": "ema_scalper",
-      "hash": "49852a04b2a6bc92ffa7cc3613746fa7",
-      "url": "https://treewise.ai/templates/ema_scalper.json"
+      "hash": "a617149413752881df43717e932ac7bb",
+      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/templates/ema_scalper.json"
     },
     {
       "id": "macd_trend",
-      "hash": "a28bc7d545d68faead76c64adff74ecf",
-      "url": "https://treewise.ai/templates/macd_trend.json"
+      "hash": "561f18122834be89fb00abb8adf80dad",
+      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/templates/macd_trend.json"
     },
     {
       "id": "vwap_bounce",
-      "hash": "671adb63997e83734265f2ab1efa73cc",
-      "url": "https://treewise.ai/templates/vwap_bounce.json"
+      "hash": "058cbc354200dff92cf68b2695908e0e",
+      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/templates/vwap_bounce.json"
     }
   ]
 }

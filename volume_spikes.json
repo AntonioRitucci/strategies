@@ -1,122 +1,122 @@
 {
-  "name": "Volume Spikes",
-  "timeframe": "5m",
-  "pairs": [
-    "BTC/USDT",
-    "BNB/USDT"
-  ],
-  "config": {
-    "config": {
-      "pandas_ta": {
-        "sma_vol": {
-          "name": "sma",
-          "parameters": [
-            {
-              "name": "close",
-              "type_": "pd.Series",
-              "df": true,
-              "value": "volume"
-            },
-            {
-              "name": "length",
-              "type_": "int",
-              "df": false,
-              "value": "20"
-            }
-          ],
-          "returns_columns": []
-        }
-      },
-      "timeframes": {}
-    }
-  },
-  "signals": {
-    "enter_long": {
-      "type_": "cross_above",
-      "column1": "volume",
-      "column2": "sma_vol_sma",
-      "side": true,
-      "children": []
-    },
-    "enter_short": {},
-    "exit_long": {},
-    "exit_short": {},
-    "enter_long_cooldown": null,
-    "enter_short_cooldown": null
-  },
-  "plot": {
-    "main_plot": {},
-    "subplots": {
-      "sma_vol": {
-        "volume": {
-          "color": "gray",
-          "type": "histogram"
-        },
-        "sma_vol_sma": {
-          "color": "blue",
-          "type": "line"
-        }
-      }
-    }
-  },
-  "notes": [],
-  "risk": {
-    "minimal_roi": [
-      {
-        "0": 0.2
-      }
-    ],
-    "stoploss": -0.2,
-    "leverage": 10.0,
-    "useTimeLimit": false,
-    "timeLimit": 10,
-    "capital": 1000.0,
-    "maxTrades": 3,
-    "atrExit": false,
-    "atrTp": 3.0,
-    "atrSl": 1.0,
-    "tauExit": false,
-    "tauTp": 2.0,
-    "tauSl": 2.0,
-    "composite": false,
-    "positionReverse": false,
-    "trailing_stop": false,
-    "trailing_stop_positive": 0.0,
-    "trailing_stop_positive_offset": 0.0,
-    "trailing_only_offset_is_reached": false,
-    "fixedRisk": false,
-    "fixedPct": false,
-    "fixedCapital": false,
-    "fixedPctValue": 0.05,
-    "fixedCapitalValue": 50.0,
-    "volatilityBased": false,
-    "volatility": {
-      "indicator": "atr",
-      "tpMul": 1.0,
-      "slMul": 1.0
-    },
-    "entry": null,
-    "levelStop": null
-  },
-  "shop": {
-    "title": "Volume Spikes",
-    "description": "Detects unusual volume spikes combined with price action for explosive moves.",
-    "image": "https://picsum.photos/400/200?random=6",
-    "badges": [
-      "Volume Based",
-      "Break Out"
-    ],
-    "timeframes": [
-      "5m",
-      "15m"
-    ],
+    "name": "Volume Spikes",
+    "timeframe": "5m",
     "pairs": [
-      "BTC/USDT",
-      "BNB/USDT"
+        "BTC/USDT",
+        "BNB/USDT"
     ],
-    "id": "volume_spikes"
-  },
-  "aiModels": {},
-  "barsType": "time",
-  "barsThreshold": null
+    "config": {
+        "config": {
+            "pandas_ta": {
+                "sma_vol": {
+                    "name": "sma",
+                    "parameters": [
+                        {
+                            "name": "close",
+                            "type_": "pd.Series",
+                            "df": true,
+                            "value": "volume"
+                        },
+                        {
+                            "name": "length",
+                            "type_": "int",
+                            "df": false,
+                            "value": "20"
+                        }
+                    ],
+                    "returns_columns": []
+                }
+            },
+            "timeframes": {}
+        }
+    },
+    "signals": {
+        "enter_long": {
+            "type_": "cross_above",
+            "column1": "volume",
+            "column2": "sma_vol_sma",
+            "side": true,
+            "children": []
+        },
+        "enter_short": {},
+        "exit_long": {},
+        "exit_short": {},
+        "enter_long_cooldown": null,
+        "enter_short_cooldown": null
+    },
+    "plot": {
+        "main_plot": {},
+        "subplots": {
+            "sma_vol": {
+                "volume": {
+                    "color": "gray",
+                    "type": "histogram"
+                },
+                "sma_vol_sma": {
+                    "color": "blue",
+                    "type": "line"
+                }
+            }
+        }
+    },
+    "notes": [],
+    "risk": {
+        "minimal_roi": [
+            {
+                "0": 0.2
+            }
+        ],
+        "stoploss": -0.2,
+        "leverage": 10.0,
+        "useTimeLimit": false,
+        "timeLimit": 10,
+        "capital": 1000.0,
+        "maxTrades": 3,
+        "atrExit": false,
+        "atrTp": 3.0,
+        "atrSl": 1.0,
+        "tauExit": false,
+        "tauTp": 2.0,
+        "tauSl": 2.0,
+        "composite": false,
+        "positionReverse": false,
+        "trailing_stop": false,
+        "trailing_stop_positive": 0.0,
+        "trailing_stop_positive_offset": 0.0,
+        "trailing_only_offset_is_reached": false,
+        "fixedRisk": false,
+        "fixedPct": false,
+        "fixedCapital": false,
+        "fixedPctValue": 0.05,
+        "fixedCapitalValue": 50.0,
+        "volatilityBased": false,
+        "volatility": {
+            "indicator": "atr",
+            "tpMul": 1.0,
+            "slMul": 1.0
+        },
+        "entry": null,
+        "levelStop": null
+    },
+    "shop": {
+        "title": "Volume Spikes",
+        "description": "Detects unusual volume spikes combined with price action for explosive moves.",
+        "image": "https://picsum.photos/400/200?random=6",
+        "badges": [
+            "Volume Based",
+            "Break Out"
+        ],
+        "timeframes": [
+            "5m",
+            "15m"
+        ],
+        "pairs": [
+            "BTC/USDT",
+            "BNB/USDT"
+        ],
+        "id": "volume_spikes"
+    },
+    "aiModels": {},
+    "barsType": "time",
+    "barsThreshold": null
 }

@@ -1,102 +1,102 @@
 {
-  "name": "VWAP Bounce",
-  "timeframe": "1m",
-  "pairs": [
-    "BTC/USDT"
-  ],
-  "config": {
-    "config": {
-      "pandas_ta": {
-        "vwap_n1": {
-          "name": "vwap",
-          "parameters": [],
-          "returns_columns": []
-        }
-      },
-      "timeframes": {}
-    }
-  },
-  "signals": {
-    "enter_long": {
-      "type_": "cross_above",
-      "column1": "close",
-      "column2": "vwap_n1_vwap",
-      "side": true,
-      "children": []
-    },
-    "enter_short": {},
-    "exit_long": {},
-    "exit_short": {},
-    "enter_long_cooldown": null,
-    "enter_short_cooldown": null
-  },
-  "plot": {
-    "main_plot": {
-      "vwap_n1_vwap": {
-        "color": "orange",
-        "type": "line"
-      }
-    },
-    "subplots": {}
-  },
-  "notes": [],
-  "risk": {
-    "minimal_roi": [
-      {
-        "0": 0.2
-      }
-    ],
-    "stoploss": -0.2,
-    "leverage": 10.0,
-    "useTimeLimit": false,
-    "timeLimit": 10,
-    "capital": 1000.0,
-    "maxTrades": 3,
-    "atrExit": false,
-    "atrTp": 3.0,
-    "atrSl": 1.0,
-    "tauExit": false,
-    "tauTp": 2.0,
-    "tauSl": 2.0,
-    "composite": false,
-    "positionReverse": false,
-    "trailing_stop": false,
-    "trailing_stop_positive": 0.0,
-    "trailing_stop_positive_offset": 0.0,
-    "trailing_only_offset_is_reached": false,
-    "fixedRisk": false,
-    "fixedPct": false,
-    "fixedCapital": false,
-    "fixedPctValue": 0.05,
-    "fixedCapitalValue": 50.0,
-    "volatilityBased": false,
-    "volatility": {
-      "indicator": "atr",
-      "tpMul": 1.0,
-      "slMul": 1.0
-    },
-    "entry": null,
-    "levelStop": null
-  },
-  "shop": {
-    "title": "VWAP Bounce",
-    "description": "Day trading strategy that buys pullbacks to the Volume Weighted Average Price.",
-    "image": "https://picsum.photos/400/200?random=9",
-    "badges": [
-      "Day Trading",
-      "Mean Reversion"
-    ],
-    "timeframes": [
-      "1m",
-      "5m",
-      "15m"
-    ],
+    "name": "VWAP Bounce",
+    "timeframe": "1m",
     "pairs": [
-      "BTC/USDT"
+        "BTC/USDT"
     ],
-    "id": "vwap_bounce"
-  },
-  "aiModels": {},
-  "barsType": "time",
-  "barsThreshold": null
+    "config": {
+        "config": {
+            "pandas_ta": {
+                "vwap_n1": {
+                    "name": "vwap",
+                    "parameters": [],
+                    "returns_columns": []
+                }
+            },
+            "timeframes": {}
+        }
+    },
+    "signals": {
+        "enter_long": {
+            "type_": "cross_above",
+            "column1": "close",
+            "column2": "vwap_n1_vwap",
+            "side": true,
+            "children": []
+        },
+        "enter_short": {},
+        "exit_long": {},
+        "exit_short": {},
+        "enter_long_cooldown": null,
+        "enter_short_cooldown": null
+    },
+    "plot": {
+        "main_plot": {
+            "vwap_n1_vwap": {
+                "color": "orange",
+                "type": "line"
+            }
+        },
+        "subplots": {}
+    },
+    "notes": [],
+    "risk": {
+        "minimal_roi": [
+            {
+                "0": 0.2
+            }
+        ],
+        "stoploss": -0.2,
+        "leverage": 10.0,
+        "useTimeLimit": false,
+        "timeLimit": 10,
+        "capital": 1000.0,
+        "maxTrades": 3,
+        "atrExit": false,
+        "atrTp": 3.0,
+        "atrSl": 1.0,
+        "tauExit": false,
+        "tauTp": 2.0,
+        "tauSl": 2.0,
+        "composite": false,
+        "positionReverse": false,
+        "trailing_stop": false,
+        "trailing_stop_positive": 0.0,
+        "trailing_stop_positive_offset": 0.0,
+        "trailing_only_offset_is_reached": false,
+        "fixedRisk": false,
+        "fixedPct": false,
+        "fixedCapital": false,
+        "fixedPctValue": 0.05,
+        "fixedCapitalValue": 50.0,
+        "volatilityBased": false,
+        "volatility": {
+            "indicator": "atr",
+            "tpMul": 1.0,
+            "slMul": 1.0
+        },
+        "entry": null,
+        "levelStop": null
+    },
+    "shop": {
+        "title": "VWAP Bounce",
+        "description": "Day trading strategy that buys pullbacks to the Volume Weighted Average Price.",
+        "image": "https://picsum.photos/400/200?random=9",
+        "badges": [
+            "Day Trading",
+            "Mean Reversion"
+        ],
+        "timeframes": [
+            "1m",
+            "5m",
+            "15m"
+        ],
+        "pairs": [
+            "BTC/USDT"
+        ],
+        "id": "vwap_bounce"
+    },
+    "aiModels": {},
+    "barsType": "time",
+    "barsThreshold": null
 }
