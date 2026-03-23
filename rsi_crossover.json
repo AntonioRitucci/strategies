@@ -1,153 +1,231 @@
 {
-  "name": "RSI Crossover",
-  "timeframe": "1h",
-  "pairs": [
-    "BTC/USDT",
-    "ETH/USDT"
-  ],
-  "config": {
+    "name": "RSI CROSSOVER",
+    "timeframe": "1d",
+    "pairs": [],
     "config": {
-      "pandas_ta": {
-        "rsi_n1": {
-          "name": "rsi",
-          "parameters": [
-            {
-              "name": "close",
-              "type_": "pd.Series",
-              "df": true,
-              "value": "close"
+        "pandas_ta": {
+            "rsi_n1": {
+                "name": "rsi",
+                "parameters": [
+                    {
+                        "name": "close",
+                        "type_": "pd.Series",
+                        "df": true,
+                        "value": ""
+                    },
+                    {
+                        "name": "length",
+                        "type_": "int",
+                        "df": false,
+                        "value": ""
+                    },
+                    {
+                        "name": "scalar",
+                        "type_": "float",
+                        "df": false,
+                        "value": ""
+                    },
+                    {
+                        "name": "talib",
+                        "type_": "bool",
+                        "df": false,
+                        "value": ""
+                    },
+                    {
+                        "name": "drift",
+                        "type_": "int",
+                        "df": false,
+                        "value": ""
+                    },
+                    {
+                        "name": "offset",
+                        "type_": "int",
+                        "df": false,
+                        "value": ""
+                    }
+                ],
+                "returns_columns": []
             },
-            {
-              "name": "length",
-              "type_": "int",
-              "df": false,
-              "value": "14"
-            },
-            {
-              "name": "scalar",
-              "type_": "float",
-              "df": false,
-              "value": "100"
-            },
-            {
-              "name": "talib",
-              "type_": "bool",
-              "df": false,
-              "value": "True"
-            },
-            {
-              "name": "drift",
-              "type_": "int",
-              "df": false,
-              "value": "1"
-            },
-            {
-              "name": "offset",
-              "type_": "int",
-              "df": false,
-              "value": "0"
+            "natr_n1": {
+                "name": "natr",
+                "parameters": [
+                    {
+                        "name": "high",
+                        "type_": "pd.Series",
+                        "df": true,
+                        "value": ""
+                    },
+                    {
+                        "name": "low",
+                        "type_": "pd.Series",
+                        "df": true,
+                        "value": ""
+                    },
+                    {
+                        "name": "close",
+                        "type_": "pd.Series",
+                        "df": true,
+                        "value": ""
+                    },
+                    {
+                        "name": "length",
+                        "type_": "int",
+                        "df": false,
+                        "value": ""
+                    },
+                    {
+                        "name": "scalar",
+                        "type_": "float",
+                        "df": false,
+                        "value": ""
+                    },
+                    {
+                        "name": "mamode",
+                        "type_": "str",
+                        "df": false,
+                        "value": ""
+                    },
+                    {
+                        "name": "talib",
+                        "type_": "bool",
+                        "df": false,
+                        "value": ""
+                    },
+                    {
+                        "name": "offset",
+                        "type_": "int",
+                        "df": false,
+                        "value": ""
+                    }
+                ],
+                "returns_columns": []
             }
-          ],
-          "returns_columns": []
+        },
+        "timeframes": {}
+    },
+    "signals": {
+        "enter_long": {
+            "column1": "rsi_n1_rsi",
+            "column2": "number",
+            "type_": "cross_above",
+            "value_2": "30",
+            "side": true,
+            "children": []
+        },
+        "enter_short": {},
+        "exit_long": {},
+        "exit_short": {},
+        "enter_long_cooldown": null,
+        "enter_short_cooldown": null
+    },
+    "plot": {
+        "main_plot": {},
+        "subplots": {
+            "rsi_n1": {
+                "rsi_n1_rsi": {
+                    "color": "black"
+                }
+            },
+            "natr_n1": {
+                "natr_n1_natr": {
+                    "color": "black"
+                }
+            }
+        },
+        "proportions": {}
+    },
+    "notes": [],
+    "risk": {
+        "minimal_roi": [
+            {
+                "0": 0.2
+            }
+        ],
+        "stoploss": -0.1,
+        "leverage": 10.0,
+        "useTimeLimit": false,
+        "timeLimit": 10,
+        "capital": 1000000.0,
+        "maxTrades": 10,
+        "atrExit": false,
+        "atrTp": 3.0,
+        "atrSl": 1.0,
+        "tauExit": false,
+        "tauTp": 2.0,
+        "tauSl": 2.0,
+        "composite": false,
+        "positionReverse": false,
+        "trailing_stop": false,
+        "trailing_stop_positive": 0.0,
+        "trailing_stop_positive_offset": 0.0,
+        "trailing_only_offset_is_reached": false,
+        "fixedRisk": true,
+        "fixedPct": true,
+        "fixedCapital": false,
+        "fixedPctValue": 2.0,
+        "fixedCapitalValue": 50000.0,
+        "volatilityBased": true,
+        "volatility": {
+            "indicator": "natr",
+            "tpMul": 5.0,
+            "slMul": 2.0
+        },
+        "entry": {
+            "long": {
+                "mode": "market",
+                "tickOffset": 0.0,
+                "entryLevelColumn": "",
+                "expiration": 0
+            },
+            "short": {
+                "mode": "market",
+                "tickOffset": 0.0,
+                "entryLevelColumn": "",
+                "expiration": 0
+            }
+        },
+        "levelStop": {
+            "long": {
+                "enabled": false,
+                "column": "",
+                "tickOffset": 0.0,
+                "rr": 1.0
+            },
+            "short": {
+                "enabled": false,
+                "column": "",
+                "tickOffset": 0.0,
+                "rr": 1.0
+            }
         }
-      },
-      "timeframes": {}
-    }
-  },
-  "signals": {
-    "enter_long": {
-      "type_": "cross_above",
-      "label": null,
-      "column1": "rsi_n1_rsi",
-      "column2": "number",
-      "value_2": "30",
-      "side": true,
-      "children": []
     },
-    "enter_short": {
-      "type_": "cross_below",
-      "label": null,
-      "column1": "rsi_n1_rsi",
-      "column2": "number",
-      "value_2": "70",
-      "side": true,
-      "children": []
+    "shop": {
+        "title": "RSI Crossover Long",
+        "description": "A simple strategy based on the Relative Strength Index crossing above 30 to go long.",
+        "image": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/rsi_crossover.png",
+        "badges": [
+            "Mean Reversion",
+            "Long"
+        ],
+        "timeframes": [
+            "1d"
+        ],
+        "pairs": [
+            "CHZ/USDT",
+            "ADA/USDT",
+            "AAVE/USDT",
+            "DOGE/USDT"
+        ],
+        "id": "rsi_crossover"
     },
-    "exit_long": {},
-    "exit_short": {},
-    "enter_long_cooldown": null,
-    "enter_short_cooldown": null
-  },
-  "plot": {
-    "main_plot": {},
-    "subplots": {
-      "rsi_n1": {
-        "rsi_n1_rsi": {
-          "color": "blue",
-          "type": "line"
-        }
-      }
-    }
-  },
-  "notes": [],
-  "risk": {
-    "minimal_roi": [
-      {
-        "0": 0.2
-      }
-    ],
-    "stoploss": -0.2,
-    "leverage": 10.0,
-    "useTimeLimit": false,
-    "timeLimit": 10,
-    "capital": 1000.0,
-    "maxTrades": 3,
-    "atrExit": false,
-    "atrTp": 3.0,
-    "atrSl": 1.0,
-    "tauExit": false,
-    "tauTp": 2.0,
-    "tauSl": 2.0,
-    "composite": false,
-    "positionReverse": false,
-    "trailing_stop": false,
-    "trailing_stop_positive": 0.0,
-    "trailing_stop_positive_offset": 0.0,
-    "trailing_only_offset_is_reached": false,
-    "fixedRisk": false,
-    "fixedPct": false,
-    "fixedCapital": false,
-    "fixedPctValue": 0.05,
-    "fixedCapitalValue": 50.0,
-    "volatilityBased": false,
-    "volatility": {
-      "indicator": "atr",
-      "tpMul": 1.0,
-      "slMul": 1.0
-    },
-    "entry": null,
-    "levelStop": null
-  },
-  "shop": {
-    "title": "RSI Crossover",
-    "description": "A simple strategy based on the Relative Strength Index crossing over 30 and 70 levels.",
-    "image": "https://picsum.photos/400/200?random=1",
-    "badges": [
-      "Mean Reversion",
-      "Long",
-      "Short"
-    ],
-    "timeframes": [
-      "1h",
-      "4h"
-    ],
-    "pairs": [
-      "BTC/USDT",
-      "ETH/USDT"
-    ],
-    "id": "rsi_crossover"
-  },
-  "aiModels": {},
-  "barsType": "time",
-  "barsThreshold": null
+    "aiModels": {},
+    "barsType": "time",
+    "barsThreshold": null,
+    "previous_hash": "cd4948fa4cb44daf538ad3ac8643a92f7db271cb93f16007a403f055d6f7ffcb",
+    "timeframe_hash": "7949c82752f87f5f044a439545f80fd14ec71c2a62a7d0ab6aa043266272558e",
+    "config_hash": "3716923df8c988301cc91bd9962f3e9b1be63d5178f7c08c64b5c8cea4b20b07",
+    "signals_hash": "4f5b5cfc20c1311ce301ba6eb9141c40945a4d6862786f6f6971a8621794aee5",
+    "risk_hash": "d0df19dcf637dd09f5d6ba958ed4f8b3f3508d26547a490c2b59e55756109028",
+    "aiModels_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "hash": "a7a01cacf3e9d3e5dffe55aae7aca8509035f69e12a93707a8662b2455c7b2d8"
 }

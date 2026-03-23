@@ -6,45 +6,43 @@
         "SOL/USDT"
     ],
     "config": {
-        "config": {
-            "pandas_ta": {
-                "macd_n1": {
-                    "name": "macd",
-                    "parameters": [
-                        {
-                            "name": "close",
-                            "type_": "pd.Series",
-                            "df": true,
-                            "value": "close"
-                        },
-                        {
-                            "name": "fast",
-                            "type_": "int",
-                            "df": false,
-                            "value": "12"
-                        },
-                        {
-                            "name": "slow",
-                            "type_": "int",
-                            "df": false,
-                            "value": "26"
-                        },
-                        {
-                            "name": "signal",
-                            "type_": "int",
-                            "df": false,
-                            "value": "9"
-                        }
-                    ],
-                    "returns_columns": [
-                        "macd",
-                        "histogram",
-                        "signal"
-                    ]
-                }
-            },
-            "timeframes": {}
-        }
+        "pandas_ta": {
+            "macd_n1": {
+                "name": "macd",
+                "parameters": [
+                    {
+                        "name": "close",
+                        "type_": "pd.Series",
+                        "df": true,
+                        "value": "close"
+                    },
+                    {
+                        "name": "fast",
+                        "type_": "int",
+                        "df": false,
+                        "value": "12"
+                    },
+                    {
+                        "name": "slow",
+                        "type_": "int",
+                        "df": false,
+                        "value": "26"
+                    },
+                    {
+                        "name": "signal",
+                        "type_": "int",
+                        "df": false,
+                        "value": "9"
+                    }
+                ],
+                "returns_columns": [
+                    "macd",
+                    "histogram",
+                    "signal"
+                ]
+            }
+        },
+        "timeframes": {}
     },
     "signals": {
         "enter_long": {

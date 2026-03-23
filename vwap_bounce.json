@@ -5,16 +5,14 @@
         "BTC/USDT"
     ],
     "config": {
-        "config": {
-            "pandas_ta": {
-                "vwap_n1": {
-                    "name": "vwap",
-                    "parameters": [],
-                    "returns_columns": []
-                }
-            },
-            "timeframes": {}
-        }
+        "pandas_ta": {
+            "vwap_n1": {
+                "name": "vwap",
+                "parameters": [],
+                "returns_columns": []
+            }
+        },
+        "timeframes": {}
     },
     "signals": {
         "enter_long": {

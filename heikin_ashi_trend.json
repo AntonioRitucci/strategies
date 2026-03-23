@@ -6,47 +6,45 @@
         "SOL/USDT"
     ],
     "config": {
-        "config": {
-            "pandas_ta": {
-                "hma_fast": {
-                    "name": "hma",
-                    "parameters": [
-                        {
-                            "name": "close",
-                            "type_": "pd.Series",
-                            "df": true,
-                            "value": "close"
-                        },
-                        {
-                            "name": "length",
-                            "type_": "int",
-                            "df": false,
-                            "value": "14"
-                        }
-                    ],
-                    "returns_columns": []
-                },
-                "hma_slow": {
-                    "name": "hma",
-                    "parameters": [
-                        {
-                            "name": "close",
-                            "type_": "pd.Series",
-                            "df": true,
-                            "value": "close"
-                        },
-                        {
-                            "name": "length",
-                            "type_": "int",
-                            "df": false,
-                            "value": "50"
-                        }
-                    ],
-                    "returns_columns": []
-                }
+        "pandas_ta": {
+            "hma_fast": {
+                "name": "hma",
+                "parameters": [
+                    {
+                        "name": "close",
+                        "type_": "pd.Series",
+                        "df": true,
+                        "value": "close"
+                    },
+                    {
+                        "name": "length",
+                        "type_": "int",
+                        "df": false,
+                        "value": "14"
+                    }
+                ],
+                "returns_columns": []
             },
-            "timeframes": {}
-        }
+            "hma_slow": {
+                "name": "hma",
+                "parameters": [
+                    {
+                        "name": "close",
+                        "type_": "pd.Series",
+                        "df": true,
+                        "value": "close"
+                    },
+                    {
+                        "name": "length",
+                        "type_": "int",
+                        "df": false,
+                        "value": "50"
+                    }
+                ],
+                "returns_columns": []
+            }
+        },
+        "timeframes": {}
     },
     "signals": {
         "enter_long": {

@@ -6,53 +6,51 @@
         "XRP/USDT"
     ],
     "config": {
-        "config": {
-            "pandas_ta": {
-                "bbands_n1": {
-                    "name": "bbands",
-                    "parameters": [
-                        {
-                            "name": "close",
-                            "type_": "pd.Series",
-                            "df": true,
-                            "value": "close"
-                        },
-                        {
-                            "name": "length",
-                            "type_": "int",
-                            "df": false,
-                            "value": "20"
-                        },
-                        {
-                            "name": "std",
-                            "type_": "int",
-                            "df": false,
-                            "value": "2"
-                        },
-                        {
-                            "name": "ddof",
-                            "type_": "int",
-                            "df": false,
-                            "value": "0"
-                        },
-                        {
-                            "name": "mamode",
-                            "type_": "str",
-                            "df": false,
-                            "value": "sma"
-                        }
-                    ],
-                    "returns_columns": [
-                        "lower",
-                        "mid",
-                        "upper",
-                        "bandwidth",
-                        "percent"
-                    ]
-                }
-            },
-            "timeframes": {}
-        }
+        "pandas_ta": {
+            "bbands_n1": {
+                "name": "bbands",
+                "parameters": [
+                    {
+                        "name": "close",
+                        "type_": "pd.Series",
+                        "df": true,
+                        "value": "close"
+                    },
+                    {
+                        "name": "length",
+                        "type_": "int",
+                        "df": false,
+                        "value": "20"
+                    },
+                    {
+                        "name": "std",
+                        "type_": "int",
+                        "df": false,
+                        "value": "2"
+                    },
+                    {
+                        "name": "ddof",
+                        "type_": "int",
+                        "df": false,
+                        "value": "0"
+                    },
+                    {
+                        "name": "mamode",
+                        "type_": "str",
+                        "df": false,
+                        "value": "sma"
+                    }
+                ],
+                "returns_columns": [
+                    "lower",
+                    "mid",
+                    "upper",
+                    "bandwidth",
+                    "percent"
+                ]
+            }
+        },
+        "timeframes": {}
     },
     "signals": {
         "enter_long": {
