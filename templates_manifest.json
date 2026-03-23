@@ -1,50 +1,50 @@
 {
-  "version": "0.1.5",
+  "version": "0.1.6",
   "templates": [
     {
       "id": "fibonacci_retracement",
       "hash": "54cb553bcb3235628d941e7f18d7512a",
-      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/templates/fibonacci_retracement.json"
+      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/fibonacci_retracement.json"
     },
     {
       "id": "mean_reversion",
       "hash": "c9e947f2acb157d4be927dd25606d92a",
-      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/templates/mean_reversion.json"
+      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/mean_reversion.json"
     },
     {
       "id": "volume_spikes",
       "hash": "1e53b56f277b1d5d760349f9651ffbc1",
-      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/templates/volume_spikes.json"
+      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/volume_spikes.json"
     },
     {
       "id": "heikin_ashi_trend",
       "hash": "a88808ac2e964d38a701f247766a9772",
-      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/templates/heikin_ashi_trend.json"
+      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/heikin_ashi_trend.json"
     },
     {
       "id": "rsi_crossover",
       "hash": "7c74f30e1472af2700c23d21c4396e99",
-      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/templates/rsi_crossover.json"
+      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/rsi_crossover.json"
     },
     {
       "id": "bollinger_breakout",
       "hash": "c66573780773d98ec0c893282fbee36d",
-      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/templates/bollinger_breakout.json"
+      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/bollinger_breakout.json"
     },
     {
       "id": "ema_scalper",
       "hash": "585af5424063432b9e5dd4d51bb68f0a",
-      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/templates/ema_scalper.json"
+      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/ema_scalper.json"
     },
     {
       "id": "macd_trend",
       "hash": "f6c0b4fe4a103987cbc1af6afd0377f1",
-      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/templates/macd_trend.json"
+      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/macd_trend.json"
     },
     {
       "id": "vwap_bounce",
       "hash": "c0cd0167d3dd7f60cbe4037955e0bd5d",
-      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/templates/vwap_bounce.json"
+      "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/vwap_bounce.json"
     }
   ]
 }
