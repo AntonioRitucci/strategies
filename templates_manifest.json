@@ -1,5 +1,5 @@
 {
-  "version": "0.1.10",
+  "version": "0.1.11",
   "templates": [
     {
       "id": "fibonacci_retracement",
@@ -18,7 +18,7 @@
     },
     {
       "id": "heikin_ashi_trend",
-      "hash": "a88808ac2e964d38a701f247766a9772",
+      "hash": "585a7c6f7957395bc8407fee9f350696",
       "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/heikin_ashi_trend.json"
     },
     {
