@@ -1,9 +1,9 @@
 {
-  "version": "0.1.7",
+  "version": "0.1.8",
   "templates": [
     {
       "id": "fibonacci_retracement",
-      "hash": "54cb553bcb3235628d941e7f18d7512a",
+      "hash": "66a9063e95b4d75ca7155e1d3c5ce037",
       "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/fibonacci_retracement.json"
     },
     {
