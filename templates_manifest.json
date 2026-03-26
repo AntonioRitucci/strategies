@@ -1,5 +1,5 @@
 {
-  "version": "0.1.8",
+  "version": "0.1.9",
   "templates": [
     {
       "id": "fibonacci_retracement",
@@ -13,7 +13,7 @@
     },
     {
       "id": "volume_spikes",
-      "hash": "1e53b56f277b1d5d760349f9651ffbc1",
+      "hash": "cbe4fc38339d40167355c82866b8a55f",
       "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/volume_spikes.json"
     },
     {

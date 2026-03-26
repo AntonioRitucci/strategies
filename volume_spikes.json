@@ -1,26 +1,29 @@
 {
     "name": "Volume Spikes",
-    "timeframe": "5m",
-    "pairs": [
-        "BTC/USDT",
-        "BNB/USDT"
-    ],
+    "timeframe": "15m",
+    "pairs": [],
     "config": {
         "pandas_ta": {
-            "sma_vol": {
-                "name": "sma",
+            "meanvolumeratio_n1": {
+                "name": "meanvolumeratio",
                 "parameters": [
                     {
-                        "name": "close",
-                        "type_": "pd.Series",
-                        "df": true,
-                        "value": "volume"
-                    },
-                    {
-                        "name": "length",
+                        "name": "period",
                         "type_": "int",
                         "df": false,
-                        "value": "20"
+                        "value": ""
+                    }
+                ],
+                "returns_columns": []
+            },
+            "min_n1": {
+                "name": "min",
+                "parameters": [
+                    {
+                        "name": "offset_start",
+                        "type_": "int",
+                        "df": false,
+                        "value": ""
                     }
                 ],
                 "returns_columns": []
@@ -30,11 +33,25 @@
     },
     "signals": {
         "enter_long": {
-            "type_": "cross_above",
-            "column1": "volume",
-            "column2": "sma_vol_sma",
+            "type_": "and",
             "side": true,
-            "children": []
+            "children": [
+                {
+                    "column1": "meanvolumeratio_n1_meanvolumeratio",
+                    "column2": "number",
+                    "type_": "higher",
+                    "value_2": "10",
+                    "side": true,
+                    "children": []
+                },
+                {
+                    "column1": "low",
+                    "column2": "min_n1_min",
+                    "type_": "eq",
+                    "side": true,
+                    "children": []
+                }
+            ]
         },
         "enter_short": {},
         "exit_long": {},
@@ -43,19 +60,19 @@
         "enter_short_cooldown": null
     },
     "plot": {
-        "main_plot": {},
+        "main_plot": {
+            "min_n1_min": {
+                "color": "red"
+            }
+        },
         "subplots": {
-            "sma_vol": {
-                "volume": {
-                    "color": "gray",
-                    "type": "histogram"
-                },
-                "sma_vol_sma": {
-                    "color": "blue",
-                    "type": "line"
+            "meanvolumeratio_n1": {
+                "meanvolumeratio_n1_meanvolumeratio": {
+                    "color": "black"
                 }
             }
-        }
+        },
+        "proportions": {}
     },
     "notes": [],
     "risk": {
@@ -64,12 +81,12 @@
                 "0": 0.2
             }
         ],
-        "stoploss": -0.2,
+        "stoploss": -0.1,
         "leverage": 10.0,
         "useTimeLimit": false,
         "timeLimit": 10,
-        "capital": 1000.0,
-        "maxTrades": 3,
+        "capital": 1000000.0,
+        "maxTrades": 10,
         "atrExit": false,
         "atrTp": 3.0,
         "atrSl": 1.0,
@@ -86,20 +103,46 @@
         "fixedPct": false,
         "fixedCapital": false,
         "fixedPctValue": 0.05,
-        "fixedCapitalValue": 50.0,
+        "fixedCapitalValue": 50000.0,
         "volatilityBased": false,
         "volatility": {
-            "indicator": "atr",
-            "tpMul": 1.0,
-            "slMul": 1.0
+            "indicator": "",
+            "tpMul": 2,
+            "slMul": 2
         },
-        "entry": null,
-        "levelStop": null
+        "entry": {
+            "long": {
+                "mode": "market",
+                "tickOffset": 0,
+                "entryLevelColumn": "",
+                "expiration": 0
+            },
+            "short": {
+                "mode": "market",
+                "tickOffset": 0,
+                "entryLevelColumn": "",
+                "expiration": 0
+            }
+        },
+        "levelStop": {
+            "long": {
+                "enabled": false,
+                "column": "",
+                "tickOffset": 0,
+                "rr": 1.0
+            },
+            "short": {
+                "enabled": false,
+                "column": "",
+                "tickOffset": 0,
+                "rr": 1.0
+            }
+        }
     },
     "shop": {
         "title": "Volume Spikes",
         "description": "Detects unusual volume spikes combined with price action for explosive moves.",
-        "image": "https://picsum.photos/400/200?random=6",
+        "image": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/volume_spikes.png",
         "badges": [
             "Volume Based",
             "Break Out"
@@ -116,5 +159,12 @@
     },
     "aiModels": {},
     "barsType": "time",
-    "barsThreshold": null
+    "barsThreshold": null,
+    "previous_hash": "f6072647c1c54c46a3ba8c6a8160fcc7ed3397e4865b19be203d002d68325746",
+    "timeframe_hash": "cb38f6b964425f026d6c21a3f51b54b48737e922efdf90ac0c40e77813b02f61",
+    "config_hash": "3faef0ff82843f7739ea5b8ff1b012e7f58e4de0c900c556412705e215b2cc9e",
+    "signals_hash": "64c323bb6e6dc204c8275f8486d5233bd719ef5eae3fb0cd92a7537f0bc82d67",
+    "risk_hash": "aa70e2a88a5c48e08bb4c498a487bb96f199e6e8ffb846b464804e91deee053a",
+    "aiModels_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "hash": "977bed8af17e4d4e36294a99a19bafef017ba038d1d8bff140d0052372afd2f0"
 }
