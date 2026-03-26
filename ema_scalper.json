@@ -1,13 +1,10 @@
 {
     "name": "EMA Scalper",
     "timeframe": "1m",
-    "pairs": [
-        "BTC/USDT",
-        "ETH/USDT"
-    ],
+    "pairs": [],
     "config": {
         "pandas_ta": {
-            "ema_9": {
+            "ema_n1": {
                 "name": "ema",
                 "parameters": [
                     {
@@ -20,12 +17,24 @@
                         "name": "length",
                         "type_": "int",
                         "df": false,
-                        "value": "9"
+                        "value": "13"
+                    },
+                    {
+                        "name": "talib",
+                        "type_": "bool",
+                        "df": false,
+                        "value": ""
+                    },
+                    {
+                        "name": "offset",
+                        "type_": "int",
+                        "df": false,
+                        "value": "0"
                     }
                 ],
                 "returns_columns": []
             },
-            "ema_21": {
+            "ema_n2": {
                 "name": "ema",
                 "parameters": [
                     {
@@ -38,7 +47,49 @@
                         "name": "length",
                         "type_": "int",
                         "df": false,
-                        "value": "21"
+                        "value": "20"
+                    },
+                    {
+                        "name": "talib",
+                        "type_": "bool",
+                        "df": false,
+                        "value": ""
+                    },
+                    {
+                        "name": "offset",
+                        "type_": "int",
+                        "df": false,
+                        "value": "0"
+                    }
+                ],
+                "returns_columns": []
+            },
+            "ema_n3": {
+                "name": "ema",
+                "parameters": [
+                    {
+                        "name": "close",
+                        "type_": "pd.Series",
+                        "df": true,
+                        "value": "close"
+                    },
+                    {
+                        "name": "length",
+                        "type_": "int",
+                        "df": false,
+                        "value": "200"
+                    },
+                    {
+                        "name": "talib",
+                        "type_": "bool",
+                        "df": false,
+                        "value": ""
+                    },
+                    {
+                        "name": "offset",
+                        "type_": "int",
+                        "df": false,
+                        "value": "0"
                     }
                 ],
                 "returns_columns": []
@@ -48,19 +99,67 @@
     },
     "signals": {
         "enter_long": {
-            "type_": "cross_above",
-            "column1": "ema_9_ema",
-            "column2": "ema_21_ema",
+            "type_": "and",
+            "label": null,
+            "column1": null,
+            "column2": null,
+            "shift_1": null,
+            "shift_2": null,
+            "pct_1": null,
+            "pct_2": null,
+            "value_2": null,
             "side": true,
-            "children": []
+            "children": [
+                {
+                    "type_": "higher",
+                    "label": null,
+                    "column1": "close",
+                    "column2": "ema_n3_ema",
+                    "shift_1": null,
+                    "shift_2": null,
+                    "pct_1": null,
+                    "pct_2": null,
+                    "value_2": null,
+                    "side": true,
+                    "children": [],
+                    "any": null,
+                    "all": null
+                },
+                {
+                    "type_": "cross_above",
+                    "label": null,
+                    "column1": "ema_n1_ema",
+                    "column2": "ema_n2_ema",
+                    "shift_1": null,
+                    "shift_2": null,
+                    "pct_1": null,
+                    "pct_2": null,
+                    "value_2": null,
+                    "side": true,
+                    "children": [],
+                    "any": null,
+                    "all": null
+                },
+                {
+                    "type_": "higher",
+                    "label": null,
+                    "column1": "ema_n2_ema",
+                    "column2": "ema_n3_ema",
+                    "shift_1": null,
+                    "shift_2": null,
+                    "pct_1": null,
+                    "pct_2": null,
+                    "value_2": null,
+                    "side": true,
+                    "children": [],
+                    "any": null,
+                    "all": null
+                }
+            ],
+            "any": null,
+            "all": null
         },
-        "enter_short": {
-            "type_": "cross_below",
-            "column1": "ema_9_ema",
-            "column2": "ema_21_ema",
-            "side": true,
-            "children": []
-        },
+        "enter_short": {},
         "exit_long": {},
         "exit_short": {},
         "enter_long_cooldown": null,
@@ -68,16 +167,18 @@
     },
     "plot": {
         "main_plot": {
-            "ema_9_ema": {
-                "color": "red",
-                "type": "line"
+            "ema_n1_ema": {
+                "color": "#365168"
             },
-            "ema_21_ema": {
-                "color": "green",
-                "type": "line"
+            "ema_n2_ema": {
+                "color": "#AD1457"
+            },
+            "ema_n3_ema": {
+                "color": "#365168"
             }
         },
-        "subplots": {}
+        "subplots": {},
+        "proportions": {}
     },
     "notes": [],
     "risk": {
@@ -86,12 +187,12 @@
                 "0": 0.2
             }
         ],
-        "stoploss": -0.2,
-        "leverage": 10.0,
+        "stoploss": -0.1,
+        "leverage": 50.0,
         "useTimeLimit": false,
         "timeLimit": 10,
-        "capital": 1000.0,
-        "maxTrades": 3,
+        "capital": 1000000.0,
+        "maxTrades": 50,
         "atrExit": false,
         "atrTp": 3.0,
         "atrSl": 1.0,
@@ -108,20 +209,46 @@
         "fixedPct": false,
         "fixedCapital": false,
         "fixedPctValue": 0.05,
-        "fixedCapitalValue": 50.0,
+        "fixedCapitalValue": 50000.0,
         "volatilityBased": false,
         "volatility": {
-            "indicator": "atr",
-            "tpMul": 1.0,
-            "slMul": 1.0
+            "indicator": "",
+            "tpMul": 2.0,
+            "slMul": 2.0
         },
-        "entry": null,
-        "levelStop": null
+        "entry": {
+            "long": {
+                "mode": "market",
+                "tickOffset": 0.0,
+                "entryLevelColumn": "",
+                "expiration": 0
+            },
+            "short": {
+                "mode": "market",
+                "tickOffset": 0.0,
+                "entryLevelColumn": "",
+                "expiration": 0
+            }
+        },
+        "levelStop": {
+            "long": {
+                "enabled": false,
+                "column": "",
+                "tickOffset": 0.0,
+                "rr": 1.0
+            },
+            "short": {
+                "enabled": false,
+                "column": "",
+                "tickOffset": 0.0,
+                "rr": 1.0
+            }
+        }
     },
     "shop": {
         "title": "EMA Scalper",
         "description": "Scalping strategy utilizing short-term Exponential Moving Averages for quick entries.",
-        "image": "https://picsum.photos/400/200?random=4",
+        "image": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/ema_scalper.png",
         "badges": [
             "Scalping",
             "Day Trading"
@@ -138,5 +265,12 @@
     },
     "aiModels": {},
     "barsType": "time",
-    "barsThreshold": null
+    "barsThreshold": null,
+    "previous_hash": "632b0d10eb6fc4d387a6fe05102b3f69d96000b23cd706f0d29d5e8bd8a3d2ed",
+    "timeframe_hash": "60e78ff05f178d01aadc2a5f73423176a825a06555cf0a05d661542f1dd8a047",
+    "config_hash": "41cf61e8266e8846e3315f02299ee53890e500f3838c18cb715b3e3a0ec11978",
+    "signals_hash": "3d781bcd552f7d97a2b718856377572f182a0e5695cec51ff7cf969375909b3c",
+    "risk_hash": "5ea68487d13cbca0eeb4b249e3784ed0809461d08b5c6992dc46817d7adee9ab",
+    "aiModels_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "hash": "1091e0f814659477943013bf867e8d8357fb02b4fb1171eab06853ae44ce77a4"
 }

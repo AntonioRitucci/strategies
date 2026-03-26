@@ -1,5 +1,5 @@
 {
-  "version": "0.1.11",
+  "version": "0.1.12",
   "templates": [
     {
       "id": "fibonacci_retracement",
@@ -33,7 +33,7 @@
     },
     {
       "id": "ema_scalper",
-      "hash": "585af5424063432b9e5dd4d51bb68f0a",
+      "hash": "749f9e2d3a268606c996833601292a0a",
       "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/ema_scalper.json"
     },
     {
