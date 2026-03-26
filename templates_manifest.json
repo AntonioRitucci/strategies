@@ -1,5 +1,5 @@
 {
-  "version": "0.1.9",
+  "version": "0.1.10",
   "templates": [
     {
       "id": "fibonacci_retracement",
@@ -8,7 +8,7 @@
     },
     {
       "id": "mean_reversion",
-      "hash": "c9e947f2acb157d4be927dd25606d92a",
+      "hash": "1db0b3766abd17d434215dcdf379c2a3",
       "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/mean_reversion.json"
     },
     {
