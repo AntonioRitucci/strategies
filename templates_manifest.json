@@ -1,5 +1,5 @@
 {
-  "version": "0.1.12",
+  "version": "0.1.13",
   "templates": [
     {
       "id": "fibonacci_retracement",
@@ -43,7 +43,7 @@
     },
     {
       "id": "vwap_bounce",
-      "hash": "c0cd0167d3dd7f60cbe4037955e0bd5d",
+      "hash": "5c1e4c9e51ac10166b6586689ea21609",
       "url": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/vwap_bounce.json"
     }
   ]

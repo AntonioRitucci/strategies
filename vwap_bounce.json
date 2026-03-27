@@ -1,14 +1,85 @@
 {
     "name": "VWAP Bounce",
     "timeframe": "1m",
-    "pairs": [
-        "BTC/USDT"
-    ],
+    "pairs": [],
     "config": {
         "pandas_ta": {
             "vwap_n1": {
                 "name": "vwap",
-                "parameters": [],
+                "parameters": [
+                    {
+                        "name": "high",
+                        "type_": "pd.Series",
+                        "df": true,
+                        "value": ""
+                    },
+                    {
+                        "name": "low",
+                        "type_": "pd.Series",
+                        "df": true,
+                        "value": ""
+                    },
+                    {
+                        "name": "close",
+                        "type_": "pd.Series",
+                        "df": true,
+                        "value": ""
+                    },
+                    {
+                        "name": "volume",
+                        "type_": "pd.Series",
+                        "df": true,
+                        "value": ""
+                    },
+                    {
+                        "name": "anchor",
+                        "type_": "str",
+                        "df": false,
+                        "value": ""
+                    },
+                    {
+                        "name": "offset",
+                        "type_": "int",
+                        "df": false,
+                        "value": ""
+                    }
+                ],
+                "returns_columns": []
+            },
+            "stdev_n1": {
+                "name": "stdev",
+                "parameters": [
+                    {
+                        "name": "close",
+                        "type_": "pd.Series",
+                        "df": true,
+                        "value": ""
+                    },
+                    {
+                        "name": "length",
+                        "type_": "int",
+                        "df": false,
+                        "value": ""
+                    },
+                    {
+                        "name": "ddof",
+                        "type_": "int",
+                        "df": false,
+                        "value": ""
+                    },
+                    {
+                        "name": "talib",
+                        "type_": "bool",
+                        "df": false,
+                        "value": ""
+                    },
+                    {
+                        "name": "offset",
+                        "type_": "int",
+                        "df": false,
+                        "value": ""
+                    }
+                ],
                 "returns_columns": []
             }
         },
@@ -16,13 +87,65 @@
     },
     "signals": {
         "enter_long": {
-            "type_": "cross_above",
-            "column1": "close",
-            "column2": "vwap_n1_vwap",
+            "type_": "and",
             "side": true,
-            "children": []
+            "children": [
+                {
+                    "column1": "close",
+                    "column2": "vwap_n1_vwap",
+                    "type_": "higher",
+                    "side": true,
+                    "all": "24",
+                    "children": []
+                },
+                {
+                    "column1": "low",
+                    "column2": "vwap_n1_vwap",
+                    "type_": "lower",
+                    "side": true,
+                    "children": []
+                },
+                {
+                    "column1": "low",
+                    "column2": "vwap_n1_vwap",
+                    "type_": "higher",
+                    "shift_1": "1",
+                    "side": true,
+                    "all": "48",
+                    "children": []
+                }
+            ]
         },
-        "enter_short": {},
+        "enter_short": {
+            "type_": "and",
+            "side": true,
+            "children": [
+                {
+                    "column1": "high",
+                    "column2": "vwap_n1_vwap",
+                    "type_": "higher",
+                    "side": true,
+                    "children": []
+                },
+                {
+                    "column1": "close",
+                    "column2": "vwap_n1_vwap",
+                    "type_": "lower",
+                    "side": true,
+                    "all": "24",
+                    "children": []
+                },
+                {
+                    "column1": "high",
+                    "column2": "vwap_n1_vwap",
+                    "type_": "lower",
+                    "shift_1": "1",
+                    "side": true,
+                    "all": "48",
+                    "children": []
+                }
+            ]
+        },
         "exit_long": {},
         "exit_short": {},
         "enter_long_cooldown": null,
@@ -31,11 +154,17 @@
     "plot": {
         "main_plot": {
             "vwap_n1_vwap": {
-                "color": "orange",
-                "type": "line"
+                "color": "#D3A03D"
             }
         },
-        "subplots": {}
+        "subplots": {
+            "stdev_n1": {
+                "stdev_n1_stdev": {
+                    "color": "black"
+                }
+            }
+        },
+        "proportions": {}
     },
     "notes": [],
     "risk": {
@@ -44,12 +173,12 @@
                 "0": 0.2
             }
         ],
-        "stoploss": -0.2,
+        "stoploss": -0.1,
         "leverage": 10.0,
         "useTimeLimit": false,
         "timeLimit": 10,
-        "capital": 1000.0,
-        "maxTrades": 3,
+        "capital": 1000000.0,
+        "maxTrades": 10,
         "atrExit": false,
         "atrTp": 3.0,
         "atrSl": 1.0,
@@ -62,32 +191,56 @@
         "trailing_stop_positive": 0.0,
         "trailing_stop_positive_offset": 0.0,
         "trailing_only_offset_is_reached": false,
-        "fixedRisk": false,
-        "fixedPct": false,
+        "fixedRisk": true,
+        "fixedPct": true,
         "fixedCapital": false,
-        "fixedPctValue": 0.05,
-        "fixedCapitalValue": 50.0,
-        "volatilityBased": false,
+        "fixedPctValue": 1.0,
+        "fixedCapitalValue": 50000.0,
+        "volatilityBased": true,
         "volatility": {
-            "indicator": "atr",
-            "tpMul": 1.0,
+            "indicator": "stdev",
+            "tpMul": 3.0,
             "slMul": 1.0
         },
-        "entry": null,
-        "levelStop": null
+        "entry": {
+            "long": {
+                "mode": "market",
+                "tickOffset": 0.0,
+                "entryLevelColumn": "",
+                "expiration": 0
+            },
+            "short": {
+                "mode": "market",
+                "tickOffset": 0.0,
+                "entryLevelColumn": "",
+                "expiration": 0
+            }
+        },
+        "levelStop": {
+            "long": {
+                "enabled": false,
+                "column": "",
+                "tickOffset": 0.0,
+                "rr": 1.0
+            },
+            "short": {
+                "enabled": false,
+                "column": "",
+                "tickOffset": 0.0,
+                "rr": 1.0
+            }
+        }
     },
     "shop": {
         "title": "VWAP Bounce",
         "description": "Day trading strategy that buys pullbacks to the Volume Weighted Average Price.",
-        "image": "https://picsum.photos/400/200?random=9",
+        "image": "https://raw.githubusercontent.com/AntonioRitucci/strategies/main/vwap_bounce.png",
         "badges": [
             "Day Trading",
             "Mean Reversion"
         ],
         "timeframes": [
-            "1m",
-            "5m",
-            "15m"
+            "1m"
         ],
         "pairs": [
             "BTC/USDT"
@@ -96,5 +249,12 @@
     },
     "aiModels": {},
     "barsType": "time",
-    "barsThreshold": null
+    "barsThreshold": null,
+    "previous_hash": "b1b848788c8f2c10468ed90761dcf62394179d000d29906eff80b1391224839e",
+    "timeframe_hash": "60e78ff05f178d01aadc2a5f73423176a825a06555cf0a05d661542f1dd8a047",
+    "config_hash": "ddb999378f4a2e9fd86fccebdf8d899952dcade678b545d37b4f60b51c5cc921",
+    "signals_hash": "f9ff058e09ac4f138daab59c0cb5a1a8146b08c29ce5fe7dcff2c93834dfc84b",
+    "risk_hash": "162ec6b815896256d26d3f392d11a56bc8830afed7971ea9b278c356589fbcd8",
+    "aiModels_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "hash": "cf94a228565c58114a421a0ef3317d95e997390856a0da7aabc189405f1bf535"
 }
